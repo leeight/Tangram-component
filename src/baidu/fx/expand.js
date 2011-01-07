@@ -34,14 +34,8 @@ baidu.fx.expand = function(element, options) {
         //[Implement Interface] initialize
         initialize: function() {
             baidu.dom.show(e);
-<<<<<<< HEAD
             this.protect('height');
             this.protect('overflow');
-=======
-            this.protect("height");
-            this.protect("overflow");
-            this.restoreAfterFinish = true;
->>>>>>> 613064b666d5492873827fe7548f75300aaa8e4b
             height = offsetHeight = e.offsetHeight;
 
             function getStyleNum(d,style) {

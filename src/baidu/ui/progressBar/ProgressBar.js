@@ -27,17 +27,12 @@
 baidu.ui.progressBar.ProgressBar = baidu.ui.createUI(function(options) {
 }).extend({
     uiType: 'progressBar',
-<<<<<<< HEAD
 	  tplBody: '<div id="#{id}" class="#{class}">#{bar}</div>',
-=======
-	tplBody: '<div id="#{id}" class="#{class}">#{bar}</div>',
->>>>>>> 613064b666d5492873827fe7548f75300aaa8e4b
     tplBar: '<div id="#{barId}" class="#{barClass}"></div>',
 
     //初始化时，进度条所在的值
     value: 0,
 
-<<<<<<< HEAD
     _min: 0,
     _max: 100,
 	 
@@ -47,34 +42,15 @@ baidu.ui.progressBar.ProgressBar = baidu.ui.createUI(function(options) {
 		    vertical: {offsetSize: 'offsetHeight', size: 'height'}
 	  },
     
-=======
-    layout: 'horizontal',
-
-    _min: 0,
-    _max: 100,
-	 //位置变换
-	axis: {
-		horizontal: {offsetSize: 'offsetWidth', size: 'width'},
-		vertical: {offsetSize: 'offsetHeight', size: 'height'}
-	},
->>>>>>> 613064b666d5492873827fe7548f75300aaa8e4b
     /**
      * 获得控件字符串
      * @return {string} HTML string.
      */
-<<<<<<< HEAD
 	  getString: function() {
 		    var me = this;
 		    return baidu.format(me.tplBody, {
 			      id: me.getId(),
 			      'class' : me.getClass(),
-=======
-	getString: function() {
-		var me = this;
-		return baidu.format(me.tplBody, {
-			id: me.getId(),
-			'class' : me.getClass(),
->>>>>>> 613064b666d5492873827fe7548f75300aaa8e4b
             bar: baidu.format(me.tplBar, {
                 barId: me.getId('bar'),
                 barClass: me.getClass('bar')
@@ -85,33 +61,17 @@ baidu.ui.progressBar.ProgressBar = baidu.ui.createUI(function(options) {
 	  /**
 	   * 渲染进度条
      * @param {HTMLElement} target
-<<<<<<< HEAD
      */
 	  render: function(target) {
 		    var me = this,
-=======
-	 */
-	render: function(target) {
-		var me = this,
->>>>>>> 613064b666d5492873827fe7548f75300aaa8e4b
             main;
 
         if (!target) {
             return;
         }
 
-<<<<<<< HEAD
         baidu.dom.insertHTML(me.renderMain(target), 'beforeEnd', me.getString());
 		    me.dispatchEvent('onload');
-=======
-        baidu.dom.insertHTML(
-            me.renderMain(target),
-            'beforeEnd',
-            me.getString()
-        );
-		me.dispatchEvent('onload');
-
->>>>>>> 613064b666d5492873827fe7548f75300aaa8e4b
         me.update();
 	  },
 
@@ -134,11 +94,7 @@ baidu.ui.progressBar.ProgressBar = baidu.ui.createUI(function(options) {
         baidu.dom.setStyle(me.getBar(), len, me._calcPos(me.value));
         me._lastValue = me.value;
 
-<<<<<<< HEAD
 		    me.dispatchEvent('update');
-=======
-		me.dispatchEvent('update');
->>>>>>> 613064b666d5492873827fe7548f75300aaa8e4b
     },
 
     /**
@@ -155,11 +111,7 @@ baidu.ui.progressBar.ProgressBar = baidu.ui.createUI(function(options) {
      */
     _calcPos: function(value) {
         var me = this;
-<<<<<<< HEAD
 		    var len = me.getBody()[me.axis[me.layout].offsetSize];
-=======
-		var len = me.getBody()[me.axis[me.layout].offsetSize];
->>>>>>> 613064b666d5492873827fe7548f75300aaa8e4b
         return value * (len) / (me._max - me._min);
     },
 

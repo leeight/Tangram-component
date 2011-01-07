@@ -48,28 +48,16 @@ baidu.ui.dialog.confirm = function(content, options) {
                 }
             }
         }
-<<<<<<< HEAD
     },options || {});
 
     if (baidu.isString(content)) {
-=======
-    },options || {}); 
-    options.autoRender = true;
-    if(baidu.isString(content)){
->>>>>>> 613064b666d5492873827fe7548f75300aaa8e4b
         options.contentText = content;
     } else {
         options.content = content;
     }
-<<<<<<< HEAD
 
     dialogInstance = new baidu.ui.dialog.Dialog(options);
 
-=======
-    
-    dialogInstance = baidu.ui.create(baidu.ui.dialog.Dialog,options);
-    
->>>>>>> 613064b666d5492873827fe7548f75300aaa8e4b
     //默认自动dispose
     if (typeof options.autoDispose == 'undefined' || options.autoDispose) {
         dialogInstance.addEventListener('onclose', function() {

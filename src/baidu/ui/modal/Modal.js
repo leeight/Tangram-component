@@ -51,13 +51,8 @@ baidu.ui.modal.Modal = baidu.ui.createUI(function(options) {
         zIndex: 1000
     };
 }).extend({
-<<<<<<< HEAD
     uiType: 'MODAL',
     _showing: false,
-=======
-    uiType    : "modal",
-    _showing  : false,
->>>>>>> 613064b666d5492873827fe7548f75300aaa8e4b
 
     /**
      * 获取modal的Container
