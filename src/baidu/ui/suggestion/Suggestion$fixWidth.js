@@ -15,9 +15,10 @@
 ///import baidu.dom.getPosition;
 ///import baidu.dom.getStyle;
 ///import baidu.dom.setStyle;
+///import baidu.dom.setOuterWidth;
 ///import baidu.dom._styleFilter.px;
 
-///import baidu.ui.smartPosition.set;
+///import baidu.ui.behavior.posable;
 
 ///import baidu.event.on;
 ///import baidu.event.un;
@@ -26,8 +27,14 @@
  * 为Suggestion提供位置校准功能
  */
 baidu.extend(baidu.ui.suggestion.Suggestion.prototype, {
+<<<<<<< HEAD
     fixWidth: true,
     getWindowResizeHandler: function() {
+=======
+    posable : true,
+    fixWidth : true,
+    getWindowResizeHandler : function(){
+>>>>>>> 613064b666d5492873827fe7548f75300aaa8e4b
         var suggestion = this;
         return function() {
             suggestion.adjustPosition(true);
@@ -38,15 +45,26 @@ baidu.extend(baidu.ui.suggestion.Suggestion.prototype, {
      * 重新放置suggestion
      * @private
      */
+<<<<<<< HEAD
     adjustPosition: function(onlyAdjustShown) {
         var suggestion = this,
             target = suggestion.getTarget(),
+=======
+    adjustPosition : function(onlyAdjustShown){
+        var me = this,
+            target = me.getTarget(),
+>>>>>>> 613064b666d5492873827fe7548f75300aaa8e4b
             targetPosition,
-            main = suggestion.getMain(),
+            main = me.getMain(),
             pos;
 
+<<<<<<< HEAD
         if (!suggestion.isShowing() && onlyAdjustShown) {
             return;
+=======
+        if(!me.isShowing() && onlyAdjustShown){
+            return ;
+>>>>>>> 613064b666d5492873827fe7548f75300aaa8e4b
         }
         targetPosition = baidu.dom.getPosition(target),
         pos = {
@@ -55,10 +73,17 @@ baidu.extend(baidu.ui.suggestion.Suggestion.prototype, {
             width: target.offsetWidth
         };
         //交给用户的view函数计算
+<<<<<<< HEAD
         pos = typeof suggestion.view == 'function' ? suggestion.view(pos) : pos;
 
         baidu.ui.smartPosition.set(main, [pos.left, pos.top], {once: true});
         baidu.ui.smartPosition.setBorderBoxStyles(main, { width: pos.width });
+=======
+        pos =  typeof me.view == "function" ? me.view(pos) : pos;
+
+        me.setPosition([pos.left, pos.top], null, {once:true});
+        baidu.dom.setOuterWidth(main, pos.width);
+>>>>>>> 613064b666d5492873827fe7548f75300aaa8e4b
     }
 });
 baidu.ui.suggestion.Suggestion.register(function(suggestion) {
@@ -68,10 +93,18 @@ baidu.ui.suggestion.Suggestion.register(function(suggestion) {
     suggestion.addEventListener('onload', function() {
         suggestion.adjustPosition();
         //监听搜索框与suggestion弹出层的宽度是否一致。
+<<<<<<< HEAD
         if (suggestion.fixWidth) {
             suggestion.fixWidthTimer = setInterval(function() {
                 var main = suggestion.getMain();
                 if (main.offsetWidth != 0 && suggestion.getTarget().offsetWidth != main.offsetWidth) {
+=======
+        if(suggestion.fixWidth){
+            suggestion.fixWidthTimer = setInterval(function (){
+                var main = suggestion.getMain(),
+                    target = suggestion.getTarget();
+                if(main.offsetWidth !=0 && target && target.offsetWidth != main.offsetWidth){
+>>>>>>> 613064b666d5492873827fe7548f75300aaa8e4b
                     suggestion.adjustPosition();
                     main.style.display = 'block';
                 }

@@ -40,7 +40,11 @@ baidu.ui.dialog.Dialog.register(function(me) {
         });
         me.closeButtonInstance = buttonInstance;
 
+<<<<<<< HEAD
         me.addEventListener('ondispose', function(e) {
+=======
+        me.addEventListener("ondispose",function(){
+>>>>>>> 613064b666d5492873827fe7548f75300aaa8e4b
             buttonInstance.dispose();
         });
     });

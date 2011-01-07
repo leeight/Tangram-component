@@ -58,7 +58,11 @@
 baidu.ui.dialog.Dialog = baidu.ui.createUI(function(options) {
 }).extend({
     //ui控件的类型，传入给UIBase **必须**
+<<<<<<< HEAD
     uiType: 'DIALOG',
+=======
+    uiType          : "dialog",
+>>>>>>> 613064b666d5492873827fe7548f75300aaa8e4b
     //ui控件的class样式前缀 可选
     //classPrefix     : "tangram-dialog-",
 
@@ -143,7 +147,7 @@ baidu.ui.dialog.Dialog = baidu.ui.createUI(function(options) {
         //main.style.left =  '-10000em';
         main.innerHTML = me.getString();
 
-		me.update(me);
+		me._update(me);
 
         baidu.dom.setStyles(me.getMain(), {
             position: 'absolute',
@@ -175,10 +179,17 @@ baidu.ui.dialog.Dialog = baidu.ui.createUI(function(options) {
      */
     open: function(options) {
         var me = this;
+<<<<<<< HEAD
         me.update(options);
         me.getMain().style.marginLeft = 'auto';
         baidu.ui.dialog.instances[me.guid] = 'show';
         me.dispatchEvent('onopen');
+=======
+        me._update(options);
+        me.getMain().style.marginLeft = "auto";
+        baidu.ui.dialog.instances[me.guid] = "show";
+        me.dispatchEvent("onopen");
+>>>>>>> 613064b666d5492873827fe7548f75300aaa8e4b
     },
 
     /*
@@ -199,7 +210,11 @@ baidu.ui.dialog.Dialog = baidu.ui.createUI(function(options) {
      * @param  {Object}             options optional        选项参数
      *
      */
+<<<<<<< HEAD
     update: function(options) {
+=======
+   _update : function(options){
+>>>>>>> 613064b666d5492873827fe7548f75300aaa8e4b
         options = options || {};
         var me = this, contentWrapper = me.getContent();
 
@@ -222,7 +237,17 @@ baidu.ui.dialog.Dialog = baidu.ui.createUI(function(options) {
             me.getTitleInner('title-inner').innerHTML = options.titleText;
 
         me._updatePosition();
+<<<<<<< HEAD
         me.dispatchEvent('onupdate');
+=======
+    },
+
+    update:function(options){
+        var me = this;
+        options = options || {};
+        me._update(options);
+        me.dispatchEvent("onupdate");
+>>>>>>> 613064b666d5492873827fe7548f75300aaa8e4b
     },
 
     /**

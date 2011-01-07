@@ -39,20 +39,29 @@ baidu.ui.dialog.alert = function(content, options) {
             }
         }
     },options || {});
+<<<<<<< HEAD
     if (baidu.isString(content)) {
+=======
+    options.autoRender = true;
+    if(baidu.isString(content)){
+>>>>>>> 613064b666d5492873827fe7548f75300aaa8e4b
         options.contentText = content;
     } else {
         options.content = content;
     }
+<<<<<<< HEAD
     dialogInstance = new baidu.ui.dialog.Dialog(options);
 
+=======
+    dialogInstance = baidu.ui.create(baidu.ui.dialog.Dialog, options);
+    
+>>>>>>> 613064b666d5492873827fe7548f75300aaa8e4b
     //默认自动dispose
     if (typeof options.autoDispose == 'undefined' || options.autoDispose) {
         dialogInstance.addEventListener('onclose', function() {
             this.dispose();
         });
     }
-    dialogInstance.render();
     //默认打开dialog
     if (typeof options.autoOpen == 'undefined' || options.autoOpen) {
         dialogInstance.open();

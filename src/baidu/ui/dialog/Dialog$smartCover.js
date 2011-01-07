@@ -22,7 +22,14 @@ baidu.ui.dialog.Dialog.register(function(me) {
     me.addEventListener('onclose', function() {
         baidu.ui.smartCover.hide(this);
     });
+<<<<<<< HEAD
     me.addEventListener('onupdate', function() {
+=======
+    me.addEventListener("onload", function(){
+        baidu.ui.smartCover.update(this);
+    });
+    me.addEventListener("onupdate", function(){
+>>>>>>> 613064b666d5492873827fe7548f75300aaa8e4b
         baidu.ui.smartCover.update(this);
     });
 });

@@ -375,9 +375,14 @@ baidu.ui.suggestion.Suggestion = baidu.ui.createUI(function(options) {
         return function(e) {
         	// todo : baidu.event.getTarget();
             e = e || window.event;
-            var element = e.target || e.srcElement;
+            var element = e.target || e.srcElement,
+                ui = baidu.ui.get(element);
             //如果在target上面或者suggestion内部
+<<<<<<< HEAD
             if (element == suggestion.getTarget() || baidu.ui.get(element)) {
+=======
+            if(element == suggestion.getTarget() || (ui && ui.uiType == suggestion.uiType)){
+>>>>>>> 613064b666d5492873827fe7548f75300aaa8e4b
                 return;
             }
             suggestion.hide();
@@ -409,4 +414,3 @@ baidu.ui.suggestion.Suggestion = baidu.ui.createUI(function(options) {
         baidu.lang.Class.prototype.dispose.call(this);
     }
 });
-

@@ -1,11 +1,14 @@
 /*
  * Tangram UI
  * Copyright 2009 Baidu Inc. All rights reserved.
+<<<<<<< HEAD
  *
  * path: baidu/ui/Base.js
  * author: berg
  * version: 1.0.0
  * date: 2010/12/02
+=======
+>>>>>>> 613064b666d5492873827fe7548f75300aaa8e4b
  */
 
 ///import baidu.ui;
@@ -19,6 +22,8 @@
 
 /**
  * UI基类，所有的UI都应该从这个类中派生出去
+ *
+ * @author berg
  *
  * property:
  *
@@ -77,11 +82,14 @@ baidu.ui.Base = {
     uiType: '',
 
     /**
+<<<<<<< HEAD
      * 放置插件方法
      */
     addons: [],
 
     /**
+=======
+>>>>>>> 613064b666d5492873827fe7548f75300aaa8e4b
      * 获取调用的字符串的引用前缀
      */
     getCallRef: function() {

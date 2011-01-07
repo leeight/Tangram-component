@@ -109,11 +109,19 @@ baidu.ui.slider.Slider = baidu.ui.createUI(function(options) {
         var me = this,
             mousePos = baidu.page.getMousePosition(),
             mainPos = baidu.dom.getPosition(me.getMain()),
+<<<<<<< HEAD
             len = 0;
 
         // 如果点在了滑块上面，就不移动
         if (baidu.event.getTarget(e) == me.getThumb()) {
             return;
+=======
+			len=0;
+        
+        //如果点在了滑块上面，就不移动
+        if(baidu.event.getTarget(e) == me.getThumb()){
+            return ;
+>>>>>>> 613064b666d5492873827fe7548f75300aaa8e4b
         }
         len = mousePos[me.axis[me.layout].mousePos] - mainPos[me.axis[me.layout].mainPos] - 
             me.getThumb()[me.axis[me.layout].thumbSize] / 2;
