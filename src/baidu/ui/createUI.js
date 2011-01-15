@@ -45,7 +45,11 @@ baidu.ui.createUI = function(constructor, options) {
             //行为就是在控件实例上附加一些属性和方法
             for (i in baidu.ui.behavior) {
                 //添加行为到控件上
+<<<<<<< HEAD
                 if (typeof me[i] != 'undefined') {
+=======
+                if(typeof me[i] != 'undefined' && me[i]){
+>>>>>>> 2692f8ef59b3e9a30f5cf3d1ed104a7b8fa169c7
                     baidu.object.extend(me, baidu.ui.behavior[i]);
                     if(baidu.lang.isFunction(me[i])){
                         me.addEventListener("onload", function(){

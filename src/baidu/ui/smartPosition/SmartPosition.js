@@ -70,6 +70,8 @@ baidu.ui.smartPosition.SmartPosition = baidu.ui.createUI(function(options) {
             source = me.source,
             cH = baidu.page.getViewHeight(),
             cW = baidu.page.getViewWidth(),
+            scrollLeft = baidu.page.getScrollLeft(),
+            scrollTop  = baidu.page.getScrollTop(),
             sourceWidth = source.offsetWidth,
             sourceHeight = source.offsetHeight,
             offsetParent = source.offsetParent,
@@ -83,6 +85,7 @@ baidu.ui.smartPosition.SmartPosition = baidu.ui.createUI(function(options) {
         me.coordinate.y = me.coordinate[1] || me.coordinate.y || me.coordinate.top || 0;
         me.offset.x = me.offset[0] || me.offset.x || me.offset.left || 0;
         me.offset.y = me.offset[1] || me.offset.y || me.offset.top || 0;
+<<<<<<< HEAD
 
         me.dispatchEvent('onbeforeupdate');
 
@@ -100,6 +103,20 @@ baidu.ui.smartPosition.SmartPosition = baidu.ui.createUI(function(options) {
                     me.position.indexOf('top') >= 0 ? (me.coordinate['y'] - baidu.page.getScrollTop() > sourceHeight ? sourceHeight : 0) :
                                                       (cH - me.coordinate['y'] + baidu.page.getScrollTop() > sourceHeight ? 0 : sourceHeight)
                 );
+=======
+        
+        me.dispatchEvent("onbeforeupdate");
+       
+        
+        elementStyle.left = me.coordinate.x + me.offset.x - parentPos.left - (me.position.indexOf("left") >= 0 ? sourceWidth : 0);
+        elementStyle.top = me.coordinate.y + me.offset.y - parentPos.top - (me.position.indexOf("top") >= 0 ? sourceHeight : 0);
+        switch (me.insideScreen){
+            case "surround" :
+            	elementStyle.left += elementStyle.left < scrollLeft ? sourceWidth  : 
+            							((elementStyle.left + sourceWidth ) > (scrollLeft + cW) ? -sourceWidth : 0);
+            	elementStyle.top  += elementStyle.top  < scrollTop  ? sourceHeight :
+            							((elementStyle.top  + sourceHeight) > (scrollTop  + cH) ? -sourceHeight : 0);
+>>>>>>> 2692f8ef59b3e9a30f5cf3d1ed104a7b8fa169c7
                 break;
             case 'fix' :
                 elementStyle.left = Math.max(

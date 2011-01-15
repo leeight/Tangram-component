@@ -11,7 +11,11 @@
 /**
  * 应用实现 confirm
  *
+<<<<<<< HEAD
  * @param  {string|HTMLElement}             content                 内容或者内容对应的元素.
+=======
+ * @param  {String|DOMElement}             content                 内容或者内容对应的元素.
+>>>>>>> 2692f8ef59b3e9a30f5cf3d1ed104a7b8fa169c7
  * @param  {Object}             options optional        选项参数.
  * @config {bool}               autoOpen optional    是否一开始就打开，默认为true
  *
@@ -49,14 +53,22 @@ baidu.ui.dialog.confirm = function(content, options) {
             }
         }
     },options || {});
+<<<<<<< HEAD
 
+=======
+    options.autoRender = true;
+>>>>>>> 2692f8ef59b3e9a30f5cf3d1ed104a7b8fa169c7
     if (baidu.isString(content)) {
         options.contentText = content;
     } else {
         options.content = content;
     }
 
+<<<<<<< HEAD
     dialogInstance = new baidu.ui.dialog.Dialog(options);
+=======
+    dialogInstance = baidu.ui.create(baidu.ui.dialog.Dialog, options);
+>>>>>>> 2692f8ef59b3e9a30f5cf3d1ed104a7b8fa169c7
 
     //默认自动dispose
     if (typeof options.autoDispose == 'undefined' || options.autoDispose) {
@@ -64,7 +76,7 @@ baidu.ui.dialog.confirm = function(content, options) {
             this.dispose();
         });
     }
-    
+
     //默认打开dialog
     if (typeof options.autoOpen == 'undefined' || options.autoOpen) {
         dialogInstance.open();

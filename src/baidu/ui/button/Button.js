@@ -61,6 +61,10 @@ baidu.ui.button.Button = baidu.ui.createUI(new Function).extend({
         return baidu.format(me.tplBody, {
             id: me.getId(),
             statable: me._getStateHandlerString(),
+<<<<<<< HEAD
+=======
+            'class' : me.getClass(),
+>>>>>>> 2692f8ef59b3e9a30f5cf3d1ed104a7b8fa169c7
             content: me.content
         });
     },
@@ -78,8 +82,14 @@ baidu.ui.button.Button = baidu.ui.createUI(new Function).extend({
         baidu.dom.insertHTML(me.renderMain(target), 'beforeEnd', me._getString());
 
         body = baidu.g(target).lastChild;
+<<<<<<< HEAD
         if (me.title)
            body.title = me.title;
+=======
+        if (me.title) {
+            body.title = me.title;
+        }
+>>>>>>> 2692f8ef59b3e9a30f5cf3d1ed104a7b8fa169c7
 
         me.disabled ? me.setState('disabled');
         me.dispatchEvent('onload');
@@ -92,6 +102,7 @@ baidu.ui.button.Button = baidu.ui.createUI(new Function).extend({
      */
     isDisabled: function() {
         var me = this,
+<<<<<<< HEAD
             id = me.getId();
         return me.getState()['disabled'];
     },
@@ -104,14 +115,55 @@ baidu.ui.button.Button = baidu.ui.createUI(new Function).extend({
     dispose: function() {
       var me = this,
           body = me.getBody();
+=======
+        id = me.getId();
+        return me.getState()['disabled'];
+    },
 
-        //删除当前实例上的方法
-        baidu.each(me._allEventsName, function(item,index) {
-            body['on' + item] = null;
-        });
+   /**
+    *  销毁实例。
+    *  @pubic
+    *  @return void.
+    */
+   dispose: function() {
+       var me = this,
+       body = me.getBody();
+>>>>>>> 2692f8ef59b3e9a30f5cf3d1ed104a7b8fa169c7
 
+       //删除当前实例上的方法
+       baidu.each(me._allEventsName, function(item,index) {
+           body['on' + item] = null;
+       });
+
+<<<<<<< HEAD
         baidu.dom.remove(body);
         baidu.lang.Class.prototype.dispose.call(me);
+=======
+       baidu.dom.remove(body);
+        baidu.lang.Class.prototype.dispose.call(me);
+   },
+
+    /**
+     * 设置disabled属性
+     * @pubic
+     * @return void.
+     * */
+    disable: function() {
+        var me = this,
+        body = me.getBody();
+        me.dispatchEvent('ondisable', {element: body});
+    },
+
+    /**
+     * 删除disabled属性
+     * @pubic
+     * @return void.
+     * */
+    enable: function() {
+        var me = this;
+        body = me.getBody();
+        me.dispatchEvent('onenable', {element: body});
+>>>>>>> 2692f8ef59b3e9a30f5cf3d1ed104a7b8fa169c7
     },
 
     /**
@@ -120,12 +172,28 @@ baidu.ui.button.Button = baidu.ui.createUI(new Function).extend({
      * @param {string} eventName
      * @param {Object} e
      * */
-    fire: function(eventName,e) {
-        var me = this, en = eventName.toLowerCase();
+    fire: function(eventType,e) {
+        var me = this, eventType = eventType.toLowerCase();
         if (me.getState()['disabled']) {
             return;
         }
+<<<<<<< HEAD
         me.setState(eventName);
         me._fireEvent(eventName, null, null, e);
+=======
+        me._fireEvent(eventType, null, null, e);
+    },
+
+    /**
+     * 更新button的属性
+     * @param {Object} options  更新button的属性.
+     * */
+    update: function(options) {
+        var me = this;
+        baidu.extend(me, options);
+        options.content && (me.getBody().innerHTML = options.content);
+
+        me.dispatchEvent('onupdate');
+>>>>>>> 2692f8ef59b3e9a30f5cf3d1ed104a7b8fa169c7
     }
 });

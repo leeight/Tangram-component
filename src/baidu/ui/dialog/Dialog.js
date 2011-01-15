@@ -44,11 +44,19 @@
  * reference: http://docs.jquery.com/UI/Dialog (Dialog in jquery)
  *
  * @param  {Object}             options optional        选项参数.
+<<<<<<< HEAD
  * @config {HTMLElement}                 content         放在content区域的元素
  * @config {string}                     contentText     放在content区域的字符串
  * @config {string}                     width           宽度
  * @config {string}                     height          高度
  * @config {string}                     dialogClass     CSS前缀
+=======
+ * @config {DOMElement}                 content         放在content区域的元素
+ * @config {String}                     contentText     放在content区域的字符串
+ * @config {String}                     width           宽度
+ * @config {String}                     height          高度
+ * @config {String}                     dialogClass     CSS前缀
+>>>>>>> 2692f8ef59b3e9a30f5cf3d1ed104a7b8fa169c7
  * @config {Function}                   onopen          当dialog展示时触发
  * @config {Function}                   onclose         当dialog隐藏时触发
  * @config {Function}                   onupdate        当dialog更新位置时触发
@@ -58,12 +66,21 @@
 baidu.ui.dialog.Dialog = baidu.ui.createUI(function(options) {
 }).extend({
     //ui控件的类型，传入给UIBase **必须**
+<<<<<<< HEAD
     uiType: 'DIALOG',
     //ui控件的class样式前缀 可选
     //classPrefix     : "tangram-dialog-",
 
     width: '400',
     height: '300',
+=======
+    uiType: 'dialog',
+    //ui控件的class样式前缀 可选
+    //classPrefix     : "tangram-dialog-",
+
+    width           : '',
+    height          : '',
+>>>>>>> 2692f8ef59b3e9a30f5cf3d1ed104a7b8fa169c7
 
     top: 'auto',
     left: 'auto',
@@ -175,7 +192,11 @@ baidu.ui.dialog.Dialog = baidu.ui.createUI(function(options) {
      */
     open: function(options) {
         var me = this;
+<<<<<<< HEAD
         me.update(options);
+=======
+        me._update(options);
+>>>>>>> 2692f8ef59b3e9a30f5cf3d1ed104a7b8fa169c7
         me.getMain().style.marginLeft = 'auto';
         baidu.ui.dialog.instances[me.guid] = 'show';
         me.dispatchEvent('onopen');
@@ -199,7 +220,11 @@ baidu.ui.dialog.Dialog = baidu.ui.createUI(function(options) {
      * @param  {Object}             options optional        选项参数
      *
      */
+<<<<<<< HEAD
     update: function(options) {
+=======
+   _update: function(options) {
+>>>>>>> 2692f8ef59b3e9a30f5cf3d1ed104a7b8fa169c7
         options = options || {};
         var me = this, contentWrapper = me.getContent();
 
@@ -222,6 +247,15 @@ baidu.ui.dialog.Dialog = baidu.ui.createUI(function(options) {
             me.getTitleInner('title-inner').innerHTML = options.titleText;
 
         me._updatePosition();
+<<<<<<< HEAD
+=======
+    },
+
+    update: function(options) {
+        var me = this;
+        options = options || {};
+        me._update(options);
+>>>>>>> 2692f8ef59b3e9a30f5cf3d1ed104a7b8fa169c7
         me.dispatchEvent('onupdate');
     },
 

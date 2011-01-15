@@ -8,17 +8,31 @@
  * date: 2010-05-18
  */
 
+<<<<<<< HEAD
+=======
+/**
+ * 应用实现 iframe
+ *
+ * @param  {String}             iframeSrc               iframe的url.
+ * @param  {Object}             options optional        选项参数.
+ *
+ */
+
+>>>>>>> 2692f8ef59b3e9a30f5cf3d1ed104a7b8fa169c7
 ///import baidu.ui.dialog;
 ///import baidu.ui.dialog.Dialog;
 ///import baidu.string.format;
 ///import baidu.browser.ie;
 
+<<<<<<< HEAD
 /**
  * 应用实现 iframe
  *
  * @param  {string} iframeSrc iframe的url.
  * @param  {Object} options optional 选项参数.
  */
+=======
+>>>>>>> 2692f8ef59b3e9a30f5cf3d1ed104a7b8fa169c7
 baidu.ui.dialog.iframe = function(iframeSrc, options) {
     options = options || {};
     var dialog = new baidu.ui.dialog.Dialog(options),
@@ -33,13 +47,21 @@ baidu.ui.dialog.iframe = function(iframeSrc, options) {
     );
     dialog.render();
 
+<<<<<<< HEAD
     // 让IE强制rerender,否则iframe可能出不来
+=======
+    //让IE强制rerender,否则iframe可能出不来
+>>>>>>> 2692f8ef59b3e9a30f5cf3d1ed104a7b8fa169c7
     iframeElement = dialog.getContent().firstChild;
     if (baidu.browser.ie) {
         iframeElement.src = dialog.getContent().firstChild.src;
     }
 
+<<<<<<< HEAD
     // 解决iframe加载后无法准确定位dialog的问题
+=======
+    //解决iframe加载后无法准确定位dialog的问题
+>>>>>>> 2692f8ef59b3e9a30f5cf3d1ed104a7b8fa169c7
     baidu.on(iframeElement, 'onload', function() {
         dialog.update(dialog);
     });

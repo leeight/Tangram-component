@@ -23,9 +23,15 @@
  * 1. esc 关闭最上层的dialog
  * 2. enter 确认alert和confirm
  */
+<<<<<<< HEAD
 baidu.extend(baidu.ui.dialog.Dialog.prototype, {
     closeOnEscape: true,
     enableKeyboard: true
+=======
+baidu.extend(baidu.ui.dialog.Dialog.prototype,{
+    enableKeyboard : true,
+    closeOnEscape : true
+>>>>>>> 2692f8ef59b3e9a30f5cf3d1ed104a7b8fa169c7
 });
 baidu.ui.dialog.Dialog.register(function(me) {
 
